@@ -57,7 +57,7 @@ def get_chopper_configuration(chopper_pv_base, chopper_number):
                    speed=['{}_speed'.format(chopper_base_pv)],
                    phase=['{}_phase'.format(chopper_base_pv)],
                    parkposition=['{}_park'.format(chopper_base_pv)],
-                   # state=['{}_state'.format(chopper_base_pv)],
+                   state=['{}_state'.format(chopper_base_pv)],
                    command=['{}_command'.format(chopper_base_pv)]
                    )
     }
