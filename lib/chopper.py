@@ -87,7 +87,7 @@ class EssChopper(Moveable):
 
     def doStatus(self, maxage=0):
         if hasattr(self, '_attached_state'):
-            return self.state_map[self._attached_state.read()]
+            return self.state_map[self._attached_state.read().lower()]
 
         return status.WARN, 'State PV is missing, no reliable state information.'
 

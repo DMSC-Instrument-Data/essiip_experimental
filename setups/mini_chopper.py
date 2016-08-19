@@ -34,13 +34,13 @@ def get_chopper_configuration(chopper_pv_base, chopper_number):
                    lowlevel=True
                    ),
 
-        # '{}_state'.format(chopper_base_pv):
-        #     device('devices.epics.EpicsReadable',
-        #            pollinterval=0.5,
-        #            description='State information of chopper {}'.format(chopper_number),
-        #            readpv='{}:State'.format(chopper_base_pv),
-        #            lowlevel=True
-        #            ),
+        '{}_state'.format(chopper_base_pv):
+            device('devices.epics.EpicsReadable',
+                   pollinterval=0.5,
+                   description='State information of chopper {}'.format(chopper_number),
+                   readpv='{}:State'.format(chopper_base_pv),
+                   lowlevel=True
+                   ),
 
         '{}_command'.format(chopper_base_pv):
             device('essiip_experimental.chopper.EpicsEnumMoveable',
