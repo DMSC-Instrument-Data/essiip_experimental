@@ -30,7 +30,7 @@ class EpicsEnumMoveable(EpicsMoveable):
     def doStart(self, value):
         real_value = value
         if isinstance(value, str):
-            real_value = self.enum_strs.indexof(value.lower())
+            real_value = self.enum_strs.index(value.lower())
 
         self._put_pv('writepv', real_value)
 
