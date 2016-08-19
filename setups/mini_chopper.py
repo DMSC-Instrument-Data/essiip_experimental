@@ -43,11 +43,11 @@ def get_chopper_configuration(chopper_pv_base, chopper_number):
         #            ),
 
         '{}_command'.format(chopper_base_pv):
-            device('essiip_experimental.chopper.EpicsStringMoveable',
+            device('essiip_experimental.chopper.EpicsEnumMoveable',
                    description='Command interface of chopper {}'.format(
                        chopper_number),
-                   readpv='{}:Cmd'.format(chopper_base_pv),
-                   writepv='{}:Cmd'.format(chopper_base_pv),
+                   readpv='{}:CmdS'.format(chopper_base_pv),
+                   writepv='{}:CmdS'.format(chopper_base_pv),
                    lowlevel=True
                    ),
 

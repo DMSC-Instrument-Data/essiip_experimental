@@ -16,6 +16,27 @@ class EpicsStringMoveable(EpicsMoveable):
     valuetype = str
 
 
+class EpicsEnumMoveable(EpicsMoveable):
+    """
+    Handles EPICS devices which can set and read an int value.
+    """
+    valuetype = str
+    enum_strs = []
+
+    def doInit(self):
+        self.enum_strs = self._get_pvctrl('writepv', 'enum_strs', [])
+
+    def doStart(self, value):
+        real_value = value
+        if isinstance(value, str):
+            real_value = self.enum_strs.indexof(value.lower())
+
+        self._put_pv('writepv', real_value)
+
+    def doRead(self, maxage=None):
+        return self.enum_strs[self._get_pv('readpv')]
+
+
 class EssChopper(Moveable):
     attached_devices = {
         'speed': Attach('Speed of the chopper disc.', EpicsMoveable),
