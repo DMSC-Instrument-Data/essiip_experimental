@@ -23,8 +23,9 @@ class EpicsEnumMoveable(EpicsMoveable):
     valuetype = str
     enum_strs = []
 
-    def doInit(self):
-        self.enum_strs = self._get_pvctrl('writepv', 'enum_strs', [])
+    def doInit(self, mode):
+        if mode != SIMULATION:
+            self.enum_strs = self._get_pvctrl('writepv', 'enum_strs', [])
 
     def doStart(self, value):
         real_value = value
