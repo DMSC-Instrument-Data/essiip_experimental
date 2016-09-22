@@ -17,6 +17,7 @@ devices = dict(
              readpv=pvs('KRDG1'),
              writepv=pvs('SETP_S2'),
              window=60.0,
+             precision=0.5,
              timeout=None,
              ),
 
